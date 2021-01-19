@@ -1,14 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Board;
-import com.example.demo.domain.Member;
 import com.example.demo.repository.BoardRepository;
-import com.example.demo.repository.MemberRepository;
-import org.apache.tomcat.jni.Local;
-import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+
 
 import javax.transaction.Transactional;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -83,7 +79,7 @@ public class BoardService {
         if(board.isPresent()) {
             if(board.get().isAvailable()) {
                 if(board.get().getMemberId().equals(memberId)) {
-                    board.get().setContent(board.get().getContent().replace("\r\n", "<br />"));
+                    board.get().setContent(board.get().getContent().replace("<br />","\r\n"));
                     return board.get();
                 }
                 else

@@ -3,17 +3,14 @@ package com.example.demo.controller;
 import com.example.demo.domain.Board;
 import com.example.demo.domain.Member;
 import com.example.demo.service.BoardService;
-import com.example.demo.service.MemberService;
-import org.hibernate.annotations.common.util.impl.LoggerFactory;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 @SessionAttributes("member")

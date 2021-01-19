@@ -3,7 +3,6 @@ package com.example.demo.service;
 import com.example.demo.domain.Member;
 import com.example.demo.repository.MemberRepository;
 
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;

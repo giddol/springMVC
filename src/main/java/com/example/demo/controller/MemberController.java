@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import javax.servlet.http.HttpServletRequest;
-
 @Controller
 @SessionAttributes("member")
 public class MemberController {

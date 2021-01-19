@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width", initial-scale="1">
-    <title>Sign up</title>
+    <title>View</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}">
 
@@ -75,15 +75,15 @@
             </tbody>
         </table>
         <form class="form-write" action="/board/board" method="get">
-           <button class="btn btn-primary btn-write" type="submit">목록</button>
+           <button class="btn btn-primary btn-board" type="submit">목록</button>
         </form>
         <form class="form-write" th:if="${article.memberId == session.member.id}" action="edit" method="get">
             <input type="hidden" name="no" th:value="${article.id}">
-            <button class="btn btn-primary btn-write" type="submit">편집</button>
+            <button class="btn btn-primary btn-board" type="submit">편집</button>
         </form>
         <form class="form-write" th:if="${article.memberId == session.member.id}" action="/board/delete" method="post">
             <input type="hidden" name="no" th:value="${article.id}">
-            <button class="btn btn-primary btn-write" type="submit">삭제</button>
+            <button class="btn btn-primary btn-board" type="submit">삭제</button>
         </form>
         </div>
     </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width", initial-scale="1">
-    <title>Sign up</title>
+    <title>Board</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}">
 
@@ -67,7 +67,7 @@
             </tbody>
         </table>
         <form th:if="${session.member.name != null}" class="form-write" action="/board/write" method="get">
-           <button class="btn btn-primary btn-write" type="submit">글쓰기</button>
+           <button class="btn btn-primary btn-board" type="submit">글쓰기</button>
         </form>
         </div>
     </div>
