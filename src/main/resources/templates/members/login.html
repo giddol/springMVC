@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <title>Sign up</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}">
+
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/css/join.css}">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.js}"></script>
+</head>
+<body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var message = [[${err}]];
+    if(message!=null)
+        alert(message);
+    /*]]>*/
+</script>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/board/board">게시판</a></li>
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:if="${session.member.name != null}" th:text="'안녕하세요, ' + ${session.member.name}+'님'"> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" th:unless="${session.member.name != null}" th:text="로그인"> <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li class="dropdown-header" th:if="${session.member.name != null}" th:text="'안녕하세요, ' + ${session.member.name}+'님'"></li>
+                        <li><a th:if="${session.member.name == null}" th:text="로그인" href="/members/login">로그인</a></li>
+                        <li><a th:if="${session.member.name != null}" th:text="로그아웃" href="/members/logout">로그아웃</a></li>
+                        <li><a href="/members/join">회원가입</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+    <div class="container">
+
+        <form class="form-signup" action="/members/login" method="post">
+            <h2 class="form-signup-heading">로그인</h2>
+            <label for="inputId" class="sr-only">Id</label>
+            <input type="Id" id="inputId" name="id" class="form-control" placeholder="Id" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+        </form>
+
+
+    </div>
+</body>
+</html>
